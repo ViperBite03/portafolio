@@ -5,6 +5,12 @@
 
   let HTMLPages
 
+  const idiomas: { title: string; level: string; color: string; progress: number }[] = [
+    { title: 'Spanish', level: 'Native', color: '#4BC0FD', progress: 100 },
+    { title: 'Catalan', level: 'Bilingual', color: '#9D6CFF', progress: 85 },
+    { title: 'English', level: 'Advanced', color: '#00E175', progress: 75 },
+  ]
+
   onMount(() => {
     const pages = [...HTMLPages.children]
 
@@ -33,22 +39,61 @@
       font-size: 30px;
     }
 
-    :global(#yo1) {
+    .idiomas {
+      display: flex;
+      justify-content: space-around;
+
+      .bar {
+        height: 30px;
+        width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        margin-top: 15px;
+        border-radius: 30px;
+        padding: 0 15px 0 15px;
+        background-color: white;
+        overflow: hidden;
+
+        .level {
+          position: absolute;
+          height: 30px;
+          width: 300px;
+          border-radius: 30px;
+          transform: translateX(-15px);
+        }
+      }
+    }
+
+    :global(#sobre-mi) {
       transform: translateY(0) !important;
     }
   }
 </style>
 
 <div class="container" bind:this={HTMLPages}>
-  <Page title={buttons[0].title} id="yo1">
-    <div class="text">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eaque ab rem ex, dolorum aliquam libero voluptatum unde illum quisquam
-      voluptas laboriosam veniam quaerat eius quod sunt incidunt quidem odio?
+  <Page title={buttons[0].title} id="sobre-mi">
+    <div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍.</div>
+  </Page>
+
+  <Page title={buttons[1].title} id="estudios" />
+
+  <Page title={buttons[2].title} id="idiomas">
+    <div class="idiomas">
+      {#each idiomas as idioma}
+        <div class="idioma">
+          <div class="idioma-title" style="font-size: 30px;">{idioma.title}</div>
+          <div class="bar">
+            <div class="tag" style="z-index: 1; color: white;">Level</div>
+            <div class="name" style="z-index: 1;">{idioma.level}</div>
+            <div class="level" style="background-color: {idioma.color}; width: calc({idioma.progress}% + 3px);"></div>
+          </div>
+        </div>
+      {/each}
     </div>
   </Page>
 
-  <Page title={buttons[1].title} id="yo2" />
-  <Page title={buttons[2].title} id="yo2" />
   <Page title={buttons[3].title} id="yo2" />
   <Page title={buttons[4].title} id="yo2" />
   <Page title={buttons[5].title} id="yo2" />
