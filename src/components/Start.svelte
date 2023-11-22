@@ -1,14 +1,6 @@
 <script lang="ts">
-  const title = "I'm Laia";
-  import NavBar from "./NavBar.svelte";
+  const title = "I'm Laia"
 </script>
-
-<div class="start">
-  <NavBar />
-  <div class="glass">
-    <div class="title">{title}</div>
-  </div>
-</div>
 
 <style lang="scss">
   .start {
@@ -22,7 +14,7 @@
       width: 100%;
       height: 50%;
 
-      background: rgba(255, 255, 255, 0.13);
+      //background: rgba(255, 255, 255, 0.13);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(2px);
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -32,17 +24,24 @@
       align-items: center;
 
       .title {
-        font-family: "against", sans-serif;
+        font-family: 'against', sans-serif;
 
-        background-clip: text;
+        /*background-clip: text;
         -webkit-background-clip: text;
         background-image: url(https://i.pinimg.com/originals/d8/7e/e3/d87ee381e69fc49b0686855f65df920c.jpg);
         background-size: cover;
         background-position: center;
+        color: transparent;*/
 
-        color: transparent;
+        color: rgb(225 207 255);
         font-size: 125px;
       }
     }
   }
 </style>
+
+<div class="start">
+  <div class="glass">
+    <div class="title">{title}</div>
+  </div>
+</div>

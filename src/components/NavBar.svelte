@@ -1,18 +1,13 @@
-<script lang="ts"></script>
-
-<div class="nav-bar">
-  <button id="boutme">Boutme</button>
-  <button id="boutme">Boutme</button>
-  <button id="boutme">Boutme</button>
-  <button id="boutme">Boutme</button>
-  <button id="boutme">Boutme</button>
-</div>
+<script lang="ts">
+  export let buttons
+</script>
 
 <style lang="scss">
   .nav-bar {
     background-color: rgb(255, 255, 255);
     height: fit-content;
     width: fit-content;
+    z-index: 99;
 
     position: fixed;
     display: flex;
@@ -21,7 +16,7 @@
     gap: 10px;
 
     border-radius: 100px;
-    padding: 14px 35px;
+    padding: 15px 20px;
     left: 0;
     right: 0;
     top: 15px;
@@ -40,10 +35,16 @@
       transition: 0.2s ease;
 
       &:hover {
-        background-color: #1e293b;
+        background-color: rgb(0, 0, 0);
         color: #fff;
         transition: 0.2s ease;
       }
     }
   }
 </style>
+
+<div class="nav-bar">
+  {#each buttons as button}
+    <button>{button.title}</button>
+  {/each}
+</div>

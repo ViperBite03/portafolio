@@ -1,12 +1,11 @@
 ---
 interface Props {
-  title: string;
+  title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
-<!doctype html>
 <html lang="en">
   <head>
     <link href="https://fonts.cdnfonts.com/css/against-2" rel="stylesheet" />
@@ -22,6 +21,7 @@ const { title } = Astro.props;
     <slot />
   </body>
 </html>
+
 <style is:global>
   *,
   *::before,
@@ -61,5 +61,9 @@ const { title } = Astro.props;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     margin: 0;
+
+    min-height: 450vh;
+
+    background-color: rgb(36, 36, 36);
   }
 </style>

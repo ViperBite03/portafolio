@@ -1,6 +1,19 @@
 ---
-import Start from "../components/Start.svelte";
-import Layout from "../layouts/Layout.astro";
+import Start from '../components/Start.svelte'
+import Layout from '../layouts/Layout.astro'
+import Paginado from '../components/Paginado.svelte'
+import NavBar from '../components/NavBar.svelte'
+
+const buttons: { title: string; url: string }[] = [
+  { title: 'Sobre mí', url: '#yo1' },
+  { title: 'Estudios', url: '' },
+  { title: 'Idiomas', url: '' },
+  { title: 'Experiencia', url: '' },
+  { title: 'Tecnologias', url: '' },
+  { title: 'Proyectos', url: '' },
+  { title: 'Soft skills', url: '' },
+  { title: 'Contacto', url: '' },
+]
 ---
 
 <style lang="scss">
@@ -13,9 +26,11 @@ import Layout from "../layouts/Layout.astro";
 </style>
 
 <Layout title="Laia Martin | Portafolio">
-  <img
+  <NavBar buttons={buttons} />
+  <!--<img
     src="https://i.pinimg.com/originals/d8/7e/e3/d87ee381e69fc49b0686855f65df920c.jpg"
     alt="BackgroundIMG"
-  />
+  />-->
   <Start />
+  <Paginado client:only="svelte" buttons={buttons} />
 </Layout>
