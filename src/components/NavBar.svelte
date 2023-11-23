@@ -24,20 +24,22 @@
     top: 15px;
     margin: auto;
 
-    button {
+    a {
       cursor: pointer;
       padding: 7px 14px;
       border: none;
       border-radius: 15px;
 
-      font-size: 15px;
+      font-size: 13px;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif;
       background-color: white;
-      color: black;
+      color: rgb(36, 36, 36);
       box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
       transition: 0.2s ease;
 
       &:hover {
-        background-color: rgb(0, 0, 0);
+        background-color: rgb(36, 36, 36);
         color: #fff;
         transition: 0.2s ease;
       }
@@ -47,6 +49,6 @@
 
 <div class="nav-bar">
   {#each sections as section}
-    <button>{section.title}</button>
+    <a href="#{section.url}">{section.title}</a>
   {/each}
 </div>

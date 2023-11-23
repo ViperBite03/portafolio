@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { ITecnologia } from './../interfaces/ITecnologia.ts'
   import type { IIdioma } from './../interfaces/IIdioma.ts'
   import type { ISection } from './../interfaces/ISection.ts'
   import Page from './Page.svelte'
@@ -12,6 +13,14 @@
     { title: 'Spanish', level: 'Native', color: '#4BC0FD', progress: 100 },
     { title: 'Catalan', level: 'Bilingual', color: '#9D6CFF', progress: 85 },
     { title: 'English', level: 'Advanced', color: '#00E175', progress: 75 },
+  ]
+
+  const tecnologias: ITecnologia[] = [
+    { title: 'CSS', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    { title: 'HTML5', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+    { title: 'JS', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+    { title: 'TS', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+    { title: 'Sass', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg' },
   ]
 
   onMount(() => {
@@ -46,6 +55,7 @@
     width: 100%;
 
     .text {
+      font-family: 'Poppins', sans-serif;
       font-size: 30px;
     }
 
@@ -74,6 +84,7 @@
           overflow: hidden;
 
           .tag {
+            font-family: 'Poppins', sans-serif;
             margin-left: 5px;
             font-size: 12px;
             z-index: 1;
@@ -89,6 +100,27 @@
       }
     }
 
+    .tecnologias {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+
+      .tecnologia {
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+          margin-top: 50px;
+          margin-bottom: 10px;
+          width: 75px;
+          height: 75px;
+        }
+      }
+    }
+
     :global(#sobre-mi) {
       transform: translateY(0) !important;
     }
@@ -96,13 +128,13 @@
 </style>
 
 <div class="container" bind:this={HTMLPages}>
-  <Page title={sections[0].title} id="sobre-mi">
+  <Page title={sections[0].title} id={sections[0].url}>
     <div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍.</div>
   </Page>
 
-  <Page title={sections[1].title} id="estudios" />
+  <Page title={sections[1].title} id={sections[1].url} />
 
-  <Page title={sections[2].title} id="idiomas">
+  <Page title={sections[2].title} id={sections[2].url}>
     <div class="idiomas">
       {#each idiomas as idioma}
         <div class="idioma">
@@ -116,8 +148,17 @@
     </div>
   </Page>
 
-  <Page title={sections[3].title} id="yo2" />
-  <Page title={sections[4].title} id="yo2" />
-  <Page title={sections[5].title} id="yo2" />
-  <Page title={sections[6].title} id="yo2" />
+  <Page title={sections[3].title} id={sections[3].url} />
+  <Page title={sections[4].title} id={sections[4].url}>
+    <div class="tecnologias">
+      {#each tecnologias as tecnologia}
+        <div class="tecnologia">
+          <img src={tecnologia.img} alt="css" />
+          <div class="label">{tecnologia.title}</div>
+        </div>
+      {/each}
+    </div>
+  </Page>
+  <Page title={sections[5].title} id={sections[5].url} />
+  <Page title={sections[6].title} id={sections[6].url} />
 </div>
