@@ -32,8 +32,7 @@
       const tope: number = 931 + 300 * pages.length
 
       if (window.scrollY > tope) {
-        console.log(window.scrollY, tope)
-        HTMLPages.style.transform = `translateY(-${window.scrollY - tope}px)`
+        HTMLPages.style.transform = `translateY(-${(window.scrollY - tope) / 2}px)`
       }
     })
   })
@@ -54,38 +53,38 @@
       display: flex;
       justify-content: space-around;
 
-      .idioma-title {
-        font-size: 30px;
-      }
+      .idioma {
+        transform: scale(1.2);
 
-      .bar {
-        height: 30px;
-        width: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-        margin-top: 15px;
-        border-radius: 30px;
-        padding: 0 15px 0 15px;
-        background-color: white;
-        overflow: hidden;
-
-        .tag {
-          z-index: 1;
-          color: white;
+        .idioma-title {
+          font-size: 30px;
         }
 
-        .name {
-          z-index: 1;
-        }
-
-        .level {
-          position: absolute;
-          height: 30px;
+        .bar {
+          height: 15px;
           width: 300px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          margin-top: 15px;
+
           border-radius: 30px;
-          transform: translateX(-15px);
+
+          background-color: white;
+          overflow: hidden;
+
+          .tag {
+            margin-left: 5px;
+            font-size: 12px;
+            z-index: 1;
+          }
+
+          .level {
+            position: absolute;
+            height: 15px;
+            width: 300px;
+            border-radius: 30px;
+          }
         }
       }
     }
@@ -109,8 +108,7 @@
         <div class="idioma">
           <div class="idioma-title">{idioma.title}</div>
           <div class="bar">
-            <div class="tag">Level</div>
-            <div class="name">{idioma.level}</div>
+            <div class="tag">{idioma.level}</div>
             <div class="level" style="background-color: {idioma.color}; width: calc({idioma.progress}% + 3px);"></div>
           </div>
         </div>
