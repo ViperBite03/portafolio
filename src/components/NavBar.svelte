@@ -1,5 +1,7 @@
 <script lang="ts">
-  export let buttons
+  import type { ISection } from '../interfaces/ISection'
+
+  export let sections: ISection[]
 </script>
 
 <style lang="scss">
@@ -44,7 +46,7 @@
 </style>
 
 <div class="nav-bar">
-  {#each buttons as button}
-    <button>{button.title}</button>
+  {#each sections as section}
+    <button>{section.title}</button>
   {/each}
 </div>

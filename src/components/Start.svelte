@@ -1,5 +1,5 @@
 <script lang="ts">
-  const title = "I'm Laia"
+  const title: string = "I'm Laia"
 </script>
 
 <style lang="scss">
