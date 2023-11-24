@@ -16,11 +16,14 @@
   ]
 
   const tecnologias: ITecnologia[] = [
+    { title: 'Sass', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg' },
     { title: 'CSS', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
     { title: 'HTML5', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-    { title: 'JS', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-    { title: 'TS', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-    { title: 'Sass', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg' },
+    { title: 'JavaScript', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+    { title: 'TypeScript  ', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+    { title: 'Svelte', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg' },
+    { title: 'Git', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+    { title: 'Astro', img: 'https://www.svgrepo.com/show/373446/astro.svg' },
   ]
 
   onMount(() => {
@@ -29,19 +32,17 @@
     document.addEventListener('scroll', () => {
       pages.map((page: HTMLElement, i: number) => {
         if (window.scrollY > 931 + 300 * i) {
-          page.style.transform = `translateY(${i * 25}px)`
+          page.style.transform = `translateY(${i * 25}px)` //Hace el efecto de paginado
           return
         }
 
-        page.style.transform = `translateY(750px)`
-
-        //console.log(window.scrollY, tope)
+        page.style.transform = `translateY(750px)` //Revierte el scroll las páginas
       })
 
       const tope: number = 931 + 300 * pages.length
 
       if (window.scrollY > tope) {
-        HTMLPages.style.transform = `translateY(-${(window.scrollY - tope) / 2}px)`
+        HTMLPages.style.transform = `translateY(-${(window.scrollY - tope) / 1.75}px)` //"Deja de ser" position: sticky
       }
     })
   })
@@ -53,6 +54,7 @@
     top: 0;
     height: 100vh;
     width: 100%;
+    z-index: 2;
 
     .text {
       font-family: 'Poppins', sans-serif;
@@ -80,31 +82,36 @@
 
           border-radius: 30px;
 
-          background-color: white;
+          background-color: inherit;
+          box-shadow: 0px 0px 10px 0.2px rgba(0, 0, 0, 0.2) inset;
           overflow: hidden;
 
           .tag {
             font-family: 'Poppins', sans-serif;
             margin-left: 5px;
             font-size: 12px;
-            z-index: 1;
           }
 
           .level {
             position: absolute;
-            height: 15px;
+            z-index: -1;
+            height: 14px;
             width: 300px;
-            border-radius: 30px;
+            //border-radius: 30px;
           }
         }
       }
     }
 
     .tecnologias {
-      display: flex;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       align-items: center;
-      gap: 50px;
+      justify-items: center;
+      max-width: 1200px;
+      margin: auto;
+      width: 100%;
+      gap: 15px;
 
       .tecnologia {
         font-family: 'Poppins', sans-serif;
@@ -113,7 +120,7 @@
         align-items: center;
 
         img {
-          margin-top: 50px;
+          margin-top: 100px;
           margin-bottom: 10px;
           width: 75px;
           height: 75px;

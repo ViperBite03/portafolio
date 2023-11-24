@@ -1,5 +1,4 @@
 <script lang="ts">
-  const title: string = "I'm Laia"
 </script>
 
 <style lang="scss">
@@ -42,6 +41,6 @@
 
 <div class="start">
   <div class="glass">
-    <div class="title">{title}</div>
+    <div class="title">I'm Laia</div>
   </div>
 </div>

@@ -15,9 +15,9 @@
     //background-color: aquamarine;
 
     .contact {
-      margin-top: 150px;
-      font-size: 100px;
-      font-weight: bold;
+      font-family: 'against', sans-serif;
+      margin-top: 50px;
+      font-size: 75px;
       color: white;
     }
   }
