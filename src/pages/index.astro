@@ -3,17 +3,18 @@ import Start from '../components/Start.svelte'
 import Layout from '../layouts/Layout.astro'
 import Paginado from '../components/Paginado.svelte'
 import NavBar from '../components/NavBar.svelte'
+import NavBar2 from '../components/NavBar2.svelte'
 import Contacto from 'src/components/Contacto.svelte'
 import type { ISection } from '../interfaces/ISection.ts'
 
 const sections: ISection[] = [
-  { title: 'Sobre mí', url: 'sobre-mi' },
-  { title: 'Estudios', url: 'estudios' },
-  { title: 'Idiomas', url: 'idiomas' },
-  { title: 'Experiencia', url: 'experiencia' },
-  { title: 'Tecnologías', url: 'tecnologias' },
-  { title: 'Proyectos', url: 'proyectos' },
-  { title: 'Soft skills', url: 'soft-skills' },
+  { title: 'Sobre mí', url: 'sobre-mi', icon: 'Mujer' },
+  { title: 'Estudios', url: 'estudios', icon: 'Estudios' },
+  { title: 'Idiomas', url: 'idiomas', icon: 'Idiomas' },
+  { title: 'Experiencia', url: 'experiencia', icon: 'Estrella' },
+  { title: 'Tecnologías', url: 'tecnologias', icon: 'PC' },
+  { title: 'Proyectos', url: 'proyectos', icon: 'LlaveInglesa' },
+  { title: 'Soft skills', url: 'soft-skills', icon: 'Cerebro' },
 ]
 ---
 
@@ -27,7 +28,7 @@ const sections: ISection[] = [
 </style>
 
 <Layout title="Laia Martin | Portafolio">
-  <NavBar sections={sections} />
+  <NavBar2 sections={sections} client:only="svelte" />
   <!--<img
     src="https://i.pinimg.com/originals/d8/7e/e3/d87ee381e69fc49b0686855f65df920c.jpg"
     alt="BackgroundIMG"

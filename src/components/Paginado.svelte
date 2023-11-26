@@ -31,7 +31,7 @@
 
     document.addEventListener('scroll', () => {
       pages.map((page: HTMLElement, i: number) => {
-        if (window.scrollY > 931 + 300 * i) {
+        if (window.scrollY >= 931 + 300 * i) {
           page.style.transform = `translateY(${i * 25}px)` //Hace el efecto de paginado
           return
         }
@@ -41,7 +41,7 @@
 
       const tope: number = 931 + 300 * pages.length
 
-      if (window.scrollY > tope) {
+      if (window.scrollY > tope && HTMLPages) {
         HTMLPages.style.transform = `translateY(-${(window.scrollY - tope) / 1.75}px)` //"Deja de ser" position: sticky
       }
     })
@@ -58,7 +58,7 @@
 
     .text {
       font-family: 'Poppins', sans-serif;
-      font-size: 30px;
+      font-size: 25px;
     }
 
     .idiomas {
@@ -135,13 +135,15 @@
 </style>
 
 <div class="container" bind:this={HTMLPages}>
-  <Page title={sections[0].title} id={sections[0].url}>
-    <div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍.</div>
+  <Page title={sections[0].title} id={sections[0].url} icon={sections[0].icon}>
+    <!--<div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno :).</div>-->
   </Page>
 
-  <Page title={sections[1].title} id={sections[1].url} />
+  <Page title={sections[1].title} id={sections[1].url} icon={sections[1].icon}>
+    <div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno :).</div>
+  </Page>
 
-  <Page title={sections[2].title} id={sections[2].url}>
+  <Page title={sections[2].title} id={sections[2].url} icon={sections[2].icon}>
     <div class="idiomas">
       {#each idiomas as idioma}
         <div class="idioma">
@@ -155,8 +157,10 @@
     </div>
   </Page>
 
-  <Page title={sections[3].title} id={sections[3].url} />
-  <Page title={sections[4].title} id={sections[4].url}>
+  <Page title={sections[3].title} id={sections[3].url} icon={sections[3].icon}>
+    <div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno :).</div>
+  </Page>
+  <Page title={sections[4].title} id={sections[4].url} icon={sections[4].icon}>
     <div class="tecnologias">
       {#each tecnologias as tecnologia}
         <div class="tecnologia">
@@ -166,6 +170,8 @@
       {/each}
     </div>
   </Page>
-  <Page title={sections[5].title} id={sections[5].url} />
-  <Page title={sections[6].title} id={sections[6].url} />
+  <Page title={sections[5].title} id={sections[5].url} icon={sections[5].icon} />
+  <Page title={sections[6].title} id={sections[6].url} icon={sections[6].icon}>
+    <div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno :).</div>
+  </Page>
 </div>

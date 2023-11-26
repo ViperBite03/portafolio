@@ -1,6 +1,7 @@
 <script lang="ts">
   export let id: string = ''
   export let title: string = 'Sobre mí'
+  export let icon: string = ''
 </script>
 
 <style lang="scss">
@@ -22,15 +23,40 @@
     transform: translateY(750px);
 
     .title {
-      font-family: 'against', sans-serif;
-      font-size: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 50px;
+
+      .circle {
+        height: 75px;
+        width: 75px;
+        border: 1px solid black;
+        border-radius: 75px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          height: 35px;
+        }
+      }
+
+      .header {
+        font-family: 'against', sans-serif;
+        font-size: 70px;
+      }
     }
   }
 </style>
 
 <div class="page" {id}>
-  <div class="title">{title}</div>
+  <div class="title">
+    <div class="header">{title}</div>
+    <div class="circle">
+      <img src="./../public/{icon}.svg" alt="" />
+    </div>
+  </div>
   <div class="content">
     <slot><!-- optional fallback --></slot>
   </div>

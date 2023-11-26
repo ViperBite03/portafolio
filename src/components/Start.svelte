@@ -41,6 +41,6 @@
 
 <div class="start">
   <div class="glass">
-    <div class="title">I'm Laia</div>
+    <div class="title">Laia Martin</div>
   </div>
 </div>
