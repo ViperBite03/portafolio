@@ -101,13 +101,13 @@
       <span class="info-title">Información de contacto</span>
       <div class="social">
         {#each contactInfos as contactInfo}
-          <a class="tlf" href={contactInfo.href}>
+          <a class="tlf" href={contactInfo.href} target="_blank">
             <img class="icono" src={contactInfo.img} alt="" />
             <div class="name">{contactInfo.name}</div>
           </a>
         {/each}
       </div>
     </div>
-    <div class="dsihfso">Miquel puto</div>
+    <div class="dsihfso" contenteditable>Miquel puto</div>
   </div>
 </div>
