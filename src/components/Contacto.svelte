@@ -61,6 +61,10 @@
       align-items: center;
       margin-top: 50px;
 
+      .picture {
+        max-width: 300px;
+      }
+
       .contact-info {
         .info-title {
           font-size: 20px;
@@ -75,8 +79,19 @@
 
           a {
             height: fit-content;
+            width: fit-content;
             display: flex;
             align-items: center;
+            transition: 0.2s ease;
+
+            &:hover {
+              color: rgb(198, 163, 254);
+
+              .icono {
+                transform: scale(1.2);
+                transition: 0.2s ease;
+              }
+            }
 
             .name {
               margin-left: 10px;
@@ -108,6 +123,6 @@
         {/each}
       </div>
     </div>
-    <div class="dsihfso" contenteditable>Miquel puto</div>
+    <img class="picture" src="./../public/chibi-me.png" alt="" />
   </div>
 </div>
