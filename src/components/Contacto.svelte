@@ -29,6 +29,8 @@
 </script>
 
 <style lang="scss">
+  $color: rgb(225 207 255);
+
   .footer {
     position: absolute;
     bottom: 0;
@@ -48,34 +50,42 @@
       color: white;
     }
 
-    .subtitle {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
     .content {
       height: fit-content;
       width: 100%;
       display: flex;
       justify-content: space-around;
+      padding: 0 275px;
       align-items: center;
       margin-top: 50px;
+      position: relative;
 
       .picture {
         max-width: 300px;
       }
 
-      .contact-info {
-        .info-title {
-          font-size: 20px;
-        }
+      .rectangle {
+        position: absolute;
+        height: 200px;
+        width: 1000px;
+        border-radius: 20px;
+        z-index: -1;
+        //background-color: $color;
+        //opacity: 0.7;
 
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .contact-info {
         .social {
           display: flex;
           flex-direction: column;
           text-align: center;
+          font-size: 20px;
           gap: 10px;
-          margin-top: 15px;
+          margin-left: 20px;
 
           a {
             height: fit-content;
@@ -85,7 +95,7 @@
             transition: 0.2s ease;
 
             &:hover {
-              color: rgb(198, 163, 254);
+              color: #2fe7c0;
 
               .icono {
                 transform: scale(1.2);
@@ -94,11 +104,11 @@
             }
 
             .name {
-              margin-left: 10px;
+              margin-left: 15px;
             }
 
             .icono {
-              height: 25px;
+              height: 35px;
               filter: invert(1);
             }
           }
@@ -113,7 +123,6 @@
   <div class="subtitle">¡Ponte en contacto conmigo!</div>
   <div class="content">
     <div class="contact-info">
-      <span class="info-title">Información de contacto</span>
       <div class="social">
         {#each contactInfos as contactInfo}
           <a class="tlf" href={contactInfo.href} target="_blank">
@@ -124,5 +133,6 @@
       </div>
     </div>
     <img class="picture" src="./../public/chibi-me.png" alt="" />
+    <div class="rectangle"></div>
   </div>
 </div>
