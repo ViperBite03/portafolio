@@ -71,7 +71,7 @@
   }
 </style>
 
-<div class="nav-bar" contenteditable>
+<div class="nav-bar">
   {#each sections as section, index}
     <button class="boton" on:click={() => goToSection(index)}>
       <img src="./../public/{section.icon}.svg" alt="" />

@@ -59,6 +59,23 @@
     .text {
       font-family: 'Poppins', sans-serif;
       font-size: 25px;
+      text-wrap: balance;
+    }
+
+    .sobre-mi {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 25px;
+
+      .text {
+        max-width: 750px;
+        padding: 25px 0;
+      }
+
+      .picture {
+        max-width: 500px;
+        margin-right: 25px;
+      }
     }
 
     .idiomas {
@@ -136,11 +153,16 @@
 
 <div class="container" bind:this={HTMLPages}>
   <Page title={sections[0].title} id={sections[0].url} icon={sections[0].icon}>
-    <!--<div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno :).</div>-->
+    <div class="sobre-mi">
+      <span class="text" contenteditable
+        >Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno.</span
+      >
+      <img class="picture" src="https://cdn.pixabay.com/photo/2017/01/25/17/35/picture-2008484_1280.png" alt="" />
+    </div>
   </Page>
 
   <Page title={sections[1].title} id={sections[1].url} icon={sections[1].icon}>
-    <div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno :).</div>
+    <div class="estudios"></div>
   </Page>
 
   <Page title={sections[2].title} id={sections[2].url} icon={sections[2].icon}>
