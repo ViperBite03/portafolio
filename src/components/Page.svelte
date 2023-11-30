@@ -11,7 +11,8 @@
     width: 95%;
     display: flex;
     flex-direction: column;
-    background-color: rgb(225 207 255);
+    //background-color: rgb(225 207 255);
+    background-color: rgb(190 150 255);
     box-shadow: 0 -10px 25px -15px rgba(100, 100, 100, 0.25);
     border-radius: 20px;
     padding: 50px;

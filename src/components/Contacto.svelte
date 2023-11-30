@@ -47,7 +47,7 @@
       font-family: 'against', sans-serif;
       margin-top: 50px;
       font-size: 75px;
-      color: white;
+      color: rgb(190 150 255);
     }
 
     .content {
@@ -125,7 +125,7 @@
     <div class="contact-info">
       <div class="social">
         {#each contactInfos as contactInfo}
-          <a class="tlf" href={contactInfo.href} target="_blank">
+          <a href={contactInfo.href} target="_blank">
             <img class="icono" src={contactInfo.img} alt="" />
             <div class="name">{contactInfo.name}</div>
           </a>
