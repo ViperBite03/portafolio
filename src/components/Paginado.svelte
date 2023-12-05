@@ -3,11 +3,8 @@
   import type { IIdioma } from './../interfaces/IIdioma.ts'
   import type { ISection } from './../interfaces/ISection.ts'
   import Page from './Page.svelte'
-  import { onMount } from 'svelte'
 
   export let sections: ISection[]
-
-  let HTMLPages: HTMLElement
 
   const idiomas: IIdioma[] = [
     { title: 'Spanish', level: 'Native', color: '#4BC0FD', progress: 100 },
@@ -26,38 +23,7 @@
     { title: 'Astro', img: 'https://www.svgrepo.com/show/373446/astro.svg' },
   ]
 
-  onMount(() => {
-    const pages = [...HTMLPages.children]
-
-    const pageOffset: number = 300
-    const marginPage: number = 25
-
-    const topDistance: number = window.scrollY + HTMLPages.getBoundingClientRect().top
-    const contenedorHeight: number = topDistance + pageOffset * pages.length
-    const paginasHeight: number = HTMLPages.getBoundingClientRect().height
-    const hidePage: number = paginasHeight - paginasHeight / 5.5
-
-    document.addEventListener('scroll', () => {
-      pages.map((page: HTMLElement, i: number) => {
-        if (window.scrollY >= topDistance + pageOffset * i) {
-          page.style.transform = `translateY(${i * marginPage}px)` //Hace el efecto de paginado
-          return
-        }
-
-        page.style.transform = `translateY(${hidePage}px)` //Revertir el efecto
-      })
-
-      if (window.scrollY > contenedorHeight + window.innerHeight / 3) {
-        HTMLPages.style.transform = `translateY(-200px)`
-      }
-
-      if (window.scrollY < contenedorHeight + window.innerHeight / 3 && window.scrollY > contenedorHeight) {
-        HTMLPages.style.transform = `translateY(0)`
-      }
-    })
-
-    HTMLPages.parentElement.style.height = `${contenedorHeight}px`
-  })
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 </script>
 
 <style lang="scss">
@@ -169,7 +135,7 @@
 </style>
 
 <div class="contenedor">
-  <div class="paginado" bind:this={HTMLPages}>
+  <div class="paginado">
     <Page title={sections[0].title} id={sections[0].url} icon={sections[0].icon}>
       <div class="sobre-mi">
         <span class="text" contenteditable

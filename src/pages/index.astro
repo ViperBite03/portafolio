@@ -1,10 +1,8 @@
 ---
-import Start from '../components/Start.svelte'
-import Start2 from '../components/Start2.svelte'
+import Start from '../components/Start2.svelte'
 import Layout from '../layouts/Layout.astro'
 import Paginado from '../components/Paginado.svelte'
-import NavBar from '../components/NavBar.svelte'
-import NavBar2 from '../components/NavBar2.svelte'
+import NavBar from '../components/NavBar2.svelte'
 import Contacto from 'src/components/Contacto.svelte'
 import type { ISection } from '../interfaces/ISection.ts'
 
@@ -30,9 +28,55 @@ const sections: ISection[] = [
 
 <Layout title="Laia Martin | Portafolio">
   <div class="wrapper">
-    <NavBar2 sections={sections} client:only="svelte" />
-    <Start2 />
-    <Paginado client:only="svelte" sections={sections} />
+    <NavBar sections={sections} />
+    <Start />
+    <Paginado sections={sections} />
     <Contacto />
   </div>
 </Layout>
+
+<script>
+  //NavBar JavaScript
+  const HTMLPages: HTMLElement = document.querySelector('.paginado')
+  const navBarButtons = document.querySelectorAll('.nav-bar .go-to-sections')
+
+  const pageOffset: number = 300 //coordinando los pixeles con el paginado
+  const topDistance: number = window.scrollY + HTMLPages.getBoundingClientRect().top
+
+  for (let HTMLbutton of navBarButtons) {
+    HTMLbutton.addEventListener('click', () => {
+      const i: number = parseInt(HTMLbutton.getAttribute('meta-index'))
+      window.scrollTo(0, topDistance + pageOffset * i)
+    })
+  }
+
+  //Paginado JavaScript
+  const pages = [...HTMLPages.children]
+  const marginPage: number = 25
+
+  const contenedorHeight: number = topDistance + pageOffset * pages.length
+  const paginasHeight: number = HTMLPages.getBoundingClientRect().height
+  const hidePage: number = paginasHeight - paginasHeight / 5.5
+
+  document.addEventListener('scroll', () => {
+    pages.map((page: HTMLElement, i: number) => {
+      //en vez de map usar el for-in
+      if (window.scrollY >= topDistance + pageOffset * i) {
+        page.style.transform = `translateY(${i * marginPage}px)` //Hace el efecto de paginado
+        return
+      }
+
+      page.style.transform = `translateY(${hidePage}px)` //Revertir el efecto
+    })
+
+    if (window.scrollY > contenedorHeight + window.innerHeight / 3) {
+      HTMLPages.style.transform = `translateY(-200px)`
+    }
+
+    if (window.scrollY < contenedorHeight + window.innerHeight / 3 && window.scrollY > contenedorHeight) {
+      HTMLPages.style.transform = `translateY(0)`
+    }
+  })
+
+  HTMLPages.parentElement.style.height = `${contenedorHeight}px`
+</script>

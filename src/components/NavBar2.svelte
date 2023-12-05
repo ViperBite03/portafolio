@@ -1,14 +1,18 @@
 <script lang="ts">
+  import { onMount } from 'svelte'
   import type { ISection } from '../interfaces/ISection'
 
   export let sections: ISection[]
+  let goToSection
 
-  const pageOffset: number = 300 //coordinando los pixeles con el paginado
-  const topDistance: number = document.querySelector('.paginado').getBoundingClientRect().top
+  onMount(() => {
+    const pageOffset: number = 300 //coordinando los pixeles con el paginado
+    const topDistance: number = document.querySelector('.paginado').getBoundingClientRect().top
 
-  const goToSection = (i: number) => {
-    window.scrollTo(0, topDistance + pageOffset * i)
-  }
+    goToSection = (i: number) => {
+      window.scrollTo(0, topDistance + pageOffset * i)
+    }
+  })
 </script>
 
 <style lang="scss">
@@ -27,7 +31,7 @@
     top: 25px;
     margin: auto;
 
-    .boton {
+    .btn {
       font-family: 'Poppins', sans-serif;
       height: 50px;
       width: 50px;
@@ -76,13 +80,13 @@
 
 <div class="nav-bar">
   {#each sections as section, index}
-    <button class="boton" on:click={() => goToSection(index)}>
+    <button class="btn go-to-sections" meta-index={index}>
       <img src="{section.icon}.svg" alt="" />
       <span>{section.title}</span>
     </button>
   {/each}
   <a href="#contacto">
-    <button class="boton">
+    <button class="btn">
       <img src="Carta.svg" alt="" />
       <span>Contacto</span>
     </button>

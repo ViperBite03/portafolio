@@ -55,7 +55,7 @@
   <div class="title">
     <div class="header">{title}</div>
     <div class="circle">
-      <img src="./../public/{icon}.svg" alt="" />
+      <img src="{icon}.svg" alt="" />
     </div>
   </div>
   <div class="content">

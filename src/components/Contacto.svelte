@@ -4,25 +4,25 @@
     {
       title: 'Github',
       name: 'ViperBite03',
-      img: './../public/Github.svg',
+      img: 'Github.svg',
       href: 'https://github.com/ViperBite03',
     },
     {
       title: 'Linkedin',
       name: 'Laia Martin',
-      img: './../public/Linkedin.svg',
+      img: 'Linkedin.svg',
       href: 'https://www.linkedin.com/in/laia-martin-de-la-660031280/',
     },
     {
       title: 'Email',
       name: 'lamadelafu03@gmail.com',
-      img: './../public/Carta.svg',
+      img: 'Carta.svg',
       href: 'mailto:lamadelafu03@gmail.com',
     },
     {
       title: 'tlf',
       name: '671 707 263',
-      img: './../public/Phone.svg',
+      img: 'Phone.svg',
       href: '',
     },
   ]
@@ -130,7 +130,7 @@
         {/each}
       </div>
     </div>
-    <img class="picture" src="./../public/chibi-me.png" alt="" />
+    <img class="picture" src="chibi-me.png" alt="" />
     <div class="rectangle"></div>
   </div>
 </div>

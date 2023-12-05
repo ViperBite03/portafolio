@@ -4,13 +4,13 @@
     {
       title: 'Github',
       name: 'ViperBite03',
-      img: './../public/Github.svg',
+      img: 'Github.svg',
       href: 'https://github.com/ViperBite03',
     },
     {
       title: 'Linkedin',
       name: 'Laia Martin',
-      img: './../public/Linkedin.svg',
+      img: 'Linkedin.svg',
       href: 'https://www.linkedin.com/in/laia-martin-de-la-660031280/',
     },
   ]
