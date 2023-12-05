@@ -29,171 +29,190 @@
   onMount(() => {
     const pages = [...HTMLPages.children]
 
+    const pageOffset: number = 300
+    const marginPage: number = 25
+
+    const topDistance: number = window.scrollY + HTMLPages.getBoundingClientRect().top
+    const contenedorHeight: number = topDistance + pageOffset * pages.length
+    const paginasHeight: number = HTMLPages.getBoundingClientRect().height
+    const hidePage: number = paginasHeight - paginasHeight / 5.5
+
     document.addEventListener('scroll', () => {
       pages.map((page: HTMLElement, i: number) => {
-        if (window.scrollY >= 931 + 300 * i) {
-          page.style.transform = `translateY(${i * 25}px)` //Hace el efecto de paginado
+        if (window.scrollY >= topDistance + pageOffset * i) {
+          page.style.transform = `translateY(${i * marginPage}px)` //Hace el efecto de paginado
           return
         }
 
-        page.style.transform = `translateY(750px)` //Revierte el scroll las páginas
+        page.style.transform = `translateY(${hidePage}px)` //Revertir el efecto
       })
 
-      const tope: number = 931 + 300 * pages.length
+      if (window.scrollY > contenedorHeight + window.innerHeight / 3) {
+        HTMLPages.style.transform = `translateY(-200px)`
+      }
 
-      if (window.scrollY > tope && HTMLPages) {
-        HTMLPages.style.transform = `translateY(-${(window.scrollY - tope) / 1.75}px)` //"Deja de ser" position: sticky
+      if (window.scrollY < contenedorHeight + window.innerHeight / 3 && window.scrollY > contenedorHeight) {
+        HTMLPages.style.transform = `translateY(0)`
       }
     })
+
+    HTMLPages.parentElement.style.height = `${contenedorHeight}px`
   })
 </script>
 
 <style lang="scss">
-  .container {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    width: 100%;
-    z-index: 2;
+  .contenedor {
+    position: relative;
 
-    .text {
-      font-family: 'Poppins', sans-serif;
-      font-size: 25px;
-      text-wrap: balance;
-    }
-
-    .sobre-mi {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 25px;
+    .paginado {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      z-index: 2;
+      transition: 0.75s ease;
 
       .text {
-        max-width: 750px;
-        padding: 25px 0;
-      }
-
-      .picture {
-        max-width: 500px;
-        margin-right: 25px;
-      }
-    }
-
-    .idiomas {
-      display: flex;
-      justify-content: space-around;
-
-      .idioma {
-        transform: scale(1.2);
-
-        .idioma-title {
-          font-size: 30px;
-        }
-
-        .bar {
-          height: 15px;
-          width: 300px;
-          position: relative;
-          display: flex;
-          align-items: center;
-          margin-top: 15px;
-
-          border-radius: 30px;
-
-          background-color: inherit;
-          box-shadow: 0px 0px 10px 0.2px rgba(0, 0, 0, 0.2) inset;
-          overflow: hidden;
-
-          .tag {
-            font-family: 'Poppins', sans-serif;
-            margin-left: 5px;
-            font-size: 12px;
-          }
-
-          .level {
-            position: absolute;
-            z-index: -1;
-            height: 14px;
-            width: 300px;
-            //border-radius: 30px;
-          }
-        }
-      }
-    }
-
-    .tecnologias {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      align-items: center;
-      justify-items: center;
-      max-width: 1200px;
-      margin: auto;
-      width: 100%;
-      gap: 15px;
-
-      .tecnologia {
         font-family: 'Poppins', sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        font-size: 25px;
+        text-wrap: balance;
+      }
 
-        img {
-          margin-top: 100px;
-          margin-bottom: 10px;
-          width: 75px;
-          height: 75px;
+      .sobre-mi {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 25px;
+
+        .text {
+          max-width: 750px;
+          padding: 25px 0;
+        }
+
+        .picture {
+          max-width: 500px;
+          margin-right: 25px;
         }
       }
-    }
 
-    :global(#sobre-mi) {
-      transform: translateY(0) !important;
+      .idiomas {
+        display: flex;
+        justify-content: space-around;
+
+        .idioma {
+          transform: scale(1.2);
+
+          .idioma-title {
+            font-size: 30px;
+          }
+
+          .bar {
+            height: 15px;
+            width: 300px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+
+            border-radius: 30px;
+
+            background-color: inherit;
+            box-shadow: 0px 0px 10px 0.2px rgba(0, 0, 0, 0.2) inset;
+            overflow: hidden;
+
+            .tag {
+              font-family: 'Poppins', sans-serif;
+              margin-left: 5px;
+              font-size: 12px;
+            }
+
+            .level {
+              position: absolute;
+              z-index: -1;
+              height: 14px;
+              width: 300px;
+              //border-radius: 30px;
+            }
+          }
+        }
+      }
+
+      .tecnologias {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        align-items: center;
+        justify-items: center;
+        max-width: 1200px;
+        margin: auto;
+        width: 100%;
+        gap: 15px;
+
+        .tecnologia {
+          font-family: 'Poppins', sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          img {
+            margin-top: 100px;
+            margin-bottom: 10px;
+            width: 75px;
+            height: 75px;
+          }
+        }
+      }
+
+      :global(#sobre-mi) {
+        transform: translateY(0) !important;
+      }
     }
   }
 </style>
 
-<div class="container" bind:this={HTMLPages}>
-  <Page title={sections[0].title} id={sections[0].url} icon={sections[0].icon}>
-    <div class="sobre-mi">
-      <span class="text" contenteditable
-        >Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno.</span
-      >
-      <img class="picture" src="https://cdn.pixabay.com/photo/2017/01/25/17/35/picture-2008484_1280.png" alt="" />
-    </div>
-  </Page>
+<div class="contenedor">
+  <div class="paginado" bind:this={HTMLPages}>
+    <Page title={sections[0].title} id={sections[0].url} icon={sections[0].icon}>
+      <div class="sobre-mi">
+        <span class="text" contenteditable
+          >Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno.</span
+        >
+        <img class="picture" src="https://cdn.pixabay.com/photo/2017/01/25/17/35/picture-2008484_1280.png" alt="" />
+      </div>
+    </Page>
 
-  <Page title={sections[1].title} id={sections[1].url} icon={sections[1].icon}>
-    <div class="estudios"></div>
-  </Page>
+    <Page title={sections[1].title} id={sections[1].url} icon={sections[1].icon}>
+      <div class="estudios"></div>
+    </Page>
 
-  <Page title={sections[2].title} id={sections[2].url} icon={sections[2].icon}>
-    <div class="idiomas">
-      {#each idiomas as idioma}
-        <div class="idioma">
-          <div class="idioma-title">{idioma.title}</div>
-          <div class="bar">
-            <div class="tag">{idioma.level}</div>
-            <div class="level" style="background-color: {idioma.color}; width: calc({idioma.progress}% + 3px);"></div>
+    <Page title={sections[2].title} id={sections[2].url} icon={sections[2].icon}>
+      <div class="idiomas">
+        {#each idiomas as idioma}
+          <div class="idioma">
+            <div class="idioma-title">{idioma.title}</div>
+            <div class="bar">
+              <div class="tag">{idioma.level}</div>
+              <div class="level" style="background-color: {idioma.color}; width: calc({idioma.progress}% + 3px);"></div>
+            </div>
           </div>
-        </div>
-      {/each}
-    </div>
-  </Page>
+        {/each}
+      </div>
+    </Page>
 
-  <Page title={sections[3].title} id={sections[3].url} icon={sections[3].icon}>
-    <div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno :).</div>
-  </Page>
-  <Page title={sections[4].title} id={sections[4].url} icon={sections[4].icon}>
-    <div class="tecnologias">
-      {#each tecnologias as tecnologia}
-        <div class="tecnologia">
-          <img src={tecnologia.img} alt="css" />
-          <div class="label">{tecnologia.title}</div>
-        </div>
-      {/each}
-    </div>
-  </Page>
-  <Page title={sections[5].title} id={sections[5].url} icon={sections[5].icon} />
-  <Page title={sections[6].title} id={sections[6].url} icon={sections[6].icon}>
-    <div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno :).</div>
-  </Page>
+    <Page title={sections[3].title} id={sections[3].url} icon={sections[3].icon}>
+      <div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno :).</div>
+    </Page>
+    <Page title={sections[4].title} id={sections[4].url} icon={sections[4].icon}>
+      <div class="tecnologias">
+        {#each tecnologias as tecnologia}
+          <div class="tecnologia">
+            <img src={tecnologia.img} alt="css" />
+            <div class="label">{tecnologia.title}</div>
+          </div>
+        {/each}
+      </div>
+    </Page>
+    <Page title={sections[5].title} id={sections[5].url} icon={sections[5].icon} />
+    <Page title={sections[6].title} id={sections[6].url} icon={sections[6].icon}>
+      <div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno :).</div>
+    </Page>
+  </div>
 </div>

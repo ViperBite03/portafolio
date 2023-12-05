@@ -7,21 +7,21 @@
 <style lang="scss">
   .page {
     position: absolute;
-    height: 87.5%;
-    width: 95%;
     display: flex;
     flex-direction: column;
+    max-height: 1000px;
+    height: 87vh;
     //background-color: rgb(225 207 255);
     background-color: rgb(190 150 255);
     box-shadow: 0 -10px 25px -15px rgba(100, 100, 100, 0.25);
     border-radius: 20px;
     padding: 50px;
-    left: 0;
-    right: 0;
+    left: 50px;
+    right: 50px;
     bottom: 0;
     margin: auto;
     transition: 1s ease;
-    transform: translateY(750px);
+    transform: translateY(calc(100vh - 100vh / 5.5));
 
     .title {
       display: flex;

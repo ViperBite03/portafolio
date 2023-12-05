@@ -32,9 +32,8 @@
   $color: rgb(225 207 255);
 
   .footer {
-    position: absolute;
-    bottom: 0;
-    transform: translateY(calc(75vh + 3031px));
+    position: relative;
+    //transform: translateY(calc(75vh + 3031px));
     height: 75vh;
     width: 100%;
     display: flex;
@@ -62,6 +61,7 @@
 
       .picture {
         max-width: 300px;
+        z-index: 1;
       }
 
       .rectangle {
@@ -69,9 +69,6 @@
         height: 200px;
         width: 1000px;
         border-radius: 20px;
-        z-index: -1;
-        //background-color: $color;
-        //opacity: 0.7;
 
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(2px);
@@ -79,6 +76,7 @@
       }
 
       .contact-info {
+        z-index: 1;
         .social {
           display: flex;
           flex-direction: column;

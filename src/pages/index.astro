@@ -20,21 +20,19 @@ const sections: ISection[] = [
 ---
 
 <style lang="scss">
-  img {
-    position: absolute;
+  .wrapper {
+    max-width: 1875px;
     width: 100%;
-    object-fit: cover;
-    margin: none;
+    margin: auto;
+    position: relative;
   }
 </style>
 
 <Layout title="Laia Martin | Portafolio">
-  <NavBar2 sections={sections} client:only="svelte" />
-  <!--<img
-    src="https://i.pinimg.com/originals/d8/7e/e3/d87ee381e69fc49b0686855f65df920c.jpg"
-    alt="BackgroundIMG"
-  />-->
-  <Start2 />
-  <Paginado client:only="svelte" sections={sections} />
-  <Contacto />
+  <div class="wrapper">
+    <NavBar2 sections={sections} client:only="svelte" />
+    <Start2 />
+    <Paginado client:only="svelte" sections={sections} />
+    <Contacto />
+  </div>
 </Layout>

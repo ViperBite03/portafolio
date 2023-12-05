@@ -3,8 +3,11 @@
 
   export let sections: ISection[]
 
+  const pageOffset: number = 300 //coordinando los pixeles con el paginado
+  const topDistance: number = document.querySelector('.paginado').getBoundingClientRect().top
+
   const goToSection = (i: number) => {
-    window.scrollTo(0, 931 + 300 * i)
+    window.scrollTo(0, topDistance + pageOffset * i)
   }
 </script>
 
@@ -74,13 +77,13 @@
 <div class="nav-bar">
   {#each sections as section, index}
     <button class="boton" on:click={() => goToSection(index)}>
-      <img src="./../public/{section.icon}.svg" alt="" />
+      <img src="{section.icon}.svg" alt="" />
       <span>{section.title}</span>
     </button>
   {/each}
   <a href="#contacto">
     <button class="boton">
-      <img src="./../public/Carta.svg" alt="" />
+      <img src="Carta.svg" alt="" />
       <span>Contacto</span>
     </button>
   </a>
