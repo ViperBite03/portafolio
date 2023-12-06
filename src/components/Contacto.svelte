@@ -33,7 +33,6 @@
 
   .footer {
     position: relative;
-    //transform: translateY(calc(75vh + 3031px));
     height: 75vh;
     width: 100%;
     display: flex;
@@ -53,8 +52,7 @@
       height: fit-content;
       width: 100%;
       display: flex;
-      justify-content: space-around;
-      padding: 0 275px;
+      justify-content: space-evenly;
       align-items: center;
       margin-top: 50px;
       position: relative;
@@ -66,8 +64,8 @@
 
       .rectangle {
         position: absolute;
-        height: 200px;
-        width: 1000px;
+        height: 75%;
+        width: 60%;
         border-radius: 20px;
 
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -83,7 +81,6 @@
           text-align: center;
           font-size: 20px;
           gap: 10px;
-          margin-left: 20px;
 
           a {
             height: fit-content;

@@ -43,10 +43,10 @@ const sections: ISection[] = [
   const pageOffset: number = 300 //coordinando los pixeles con el paginado
   const topDistance: number = window.scrollY + HTMLPages.getBoundingClientRect().top
 
-  for (let HTMLbutton of navBarButtons) {
-    HTMLbutton.addEventListener('click', () => {
-      const i: number = parseInt(HTMLbutton.getAttribute('meta-index'))
-      window.scrollTo(0, topDistance + pageOffset * i)
+  for (let HTMLButton of navBarButtons) {
+    HTMLButton.addEventListener('click', () => {
+      const buttonIndex: number = parseInt(HTMLButton.getAttribute('meta-index'))
+      window.scrollTo(0, topDistance + pageOffset * buttonIndex)
     })
   }
 
@@ -59,14 +59,12 @@ const sections: ISection[] = [
   const hidePage: number = paginasHeight - paginasHeight / 5.5
 
   document.addEventListener('scroll', () => {
-    pages.map((page: HTMLElement, i: number) => {
-      //en vez de map usar el for-in
+    pages.forEach((page: HTMLElement, i) => {
       if (window.scrollY >= topDistance + pageOffset * i) {
-        page.style.transform = `translateY(${i * marginPage}px)` //Hace el efecto de paginado
-        return
+        page.style.transform = `translateY(${i * marginPage}px)`
+      } else {
+        page.style.transform = `translateY(${hidePage}px)`
       }
-
-      page.style.transform = `translateY(${hidePage}px)` //Revertir el efecto
     })
 
     if (window.scrollY > contenedorHeight + window.innerHeight / 3) {
