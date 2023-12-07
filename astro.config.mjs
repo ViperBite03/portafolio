@@ -16,4 +16,5 @@ export default defineConfig({
       },
     },
   },
+  site: 'https://viperbite03.github.io',
 })
