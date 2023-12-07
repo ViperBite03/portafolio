@@ -127,8 +127,9 @@
   </div>
   <div class="rectangle">
     <div class="images">
-      <img class="front" src="https://cdn.pixabay.com/photo/2017/01/25/17/35/picture-2008484_1280.png" alt="" />
-      <img class="back" src="https://cdn.pixabay.com/photo/2017/01/25/17/35/picture-2008484_1280.png" alt="" />
+      <img class="front" src="chibi-me.png" alt="" />
+      <!--<img class="front" src="https://cdn.pixabay.com/photo/2017/01/25/17/35/picture-2008484_1280.png" alt="" />
+      <img class="back" src="https://cdn.pixabay.com/photo/2017/01/25/17/35/picture-2008484_1280.png" alt="" />-->
     </div>
     <div class="contacto">
       <a href={contactInfos[0].href} target="_blank">

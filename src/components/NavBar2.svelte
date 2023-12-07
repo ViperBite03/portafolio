@@ -1,18 +1,6 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
   import type { ISection } from '../interfaces/ISection'
-
   export let sections: ISection[]
-  let goToSection
-
-  onMount(() => {
-    const pageOffset: number = 300 //coordinando los pixeles con el paginado
-    const topDistance: number = document.querySelector('.paginado').getBoundingClientRect().top
-
-    goToSection = (i: number) => {
-      window.scrollTo(0, topDistance + pageOffset * i)
-    }
-  })
 </script>
 
 <style lang="scss">
@@ -45,6 +33,8 @@
       transition: 0.5s ease;
       overflow: hidden;
       white-space: nowrap;
+      backdrop-filter: blur(3px);
+
       cursor: pointer;
 
       span {

@@ -22,8 +22,6 @@
     { title: 'Git', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
     { title: 'Astro', img: 'https://www.svgrepo.com/show/373446/astro.svg' },
   ]
-
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 </script>
 
 <style lang="scss">

@@ -3,7 +3,8 @@ import Start from '../components/Start2.svelte'
 import Layout from '../layouts/Layout.astro'
 import Paginado from '../components/Paginado.svelte'
 import NavBar from '../components/NavBar2.svelte'
-import Contacto from 'src/components/Contacto.svelte'
+import Contacto from '../components/Contacto.svelte'
+import UpButton from '../components/UpButton.svelte'
 import type { ISection } from '../interfaces/ISection.ts'
 
 const sections: ISection[] = [
@@ -30,6 +31,7 @@ const sections: ISection[] = [
   <div class="wrapper">
     <NavBar sections={sections} />
     <Start />
+    <UpButton client:only="svelte" />
     <Paginado sections={sections} />
     <Contacto />
   </div>
@@ -77,4 +79,19 @@ const sections: ISection[] = [
   })
 
   HTMLPages.parentElement.style.height = `${contenedorHeight}px`
+
+  /*UpButton JavaScript
+  let HTMLGoToStart: HTMLElement = document.querySelector('.upButton')
+
+  document.addEventListener('scroll', () => {
+    if (window.scrollY >= topDistance) {
+      HTMLGoToStart.style.display = `flex`
+    } else {
+      HTMLGoToStart.style.display = `none`
+    }
+  })
+
+  HTMLGoToStart.addEventListener('click', () => {
+    window.scrollTo(0, 0)
+  })*/
 </script>
