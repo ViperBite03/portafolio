@@ -7,6 +7,7 @@
 <style lang="scss">
   .page {
     position: absolute;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     max-height: 1000px;

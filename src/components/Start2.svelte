@@ -27,6 +27,10 @@
     width: 100%;
     height: 100vh;
 
+    @include notDesktop {
+      flex-direction: column;
+    }
+
     .rectangle {
       height: 75%;
       width: 50%;
@@ -37,7 +41,7 @@
       gap: 50px;
 
       border-radius: 20px 0 0 20px;
-      background-color: rgb(190 150 255);
+      background-color: #be96ff;
       box-shadow: -5px 0px 15px 0px rgba(0, 0, 0, 0.5);
 
       .images {
@@ -110,6 +114,10 @@
         font-size: 225px;
         text-align: left;
         max-width: 750px;
+
+        @include notDesktop {
+          font-size: 30px;
+        }
       }
 
       .subtitle {

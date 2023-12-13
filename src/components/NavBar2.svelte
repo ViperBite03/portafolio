@@ -19,6 +19,10 @@
     top: 25px;
     margin: auto;
 
+    @include notDesktop {
+      display: none;
+    }
+
     .btn {
       font-family: 'Poppins', sans-serif;
       height: 50px;

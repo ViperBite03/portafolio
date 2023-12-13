@@ -41,6 +41,10 @@
     color: white;
     font-family: 'Poppins', sans-serif;
 
+    @include notDesktop {
+      display: none;
+    }
+
     .title {
       font-family: 'against', sans-serif;
       margin-top: 50px;

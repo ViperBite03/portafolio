@@ -1,0 +1,31 @@
+$breakpoint: 1170px;
+$maxWidth: 1170px;
+$borderRadius: 4px;
+$menuHeight: 70px;
+
+/* ----- Colors ----- */
+$colorMain: #82cac7;
+$colorSecondary: #c7c7c7;
+$colorBackground: #ffffff;
+$colorContrast: rgb(19, 19, 19);
+$colorText: rgb(19, 19, 19);
+$colorTextSecondary: rgb(95, 95, 95);
+
+:root {
+  --color0: #fff;
+  --color1: #ebe8e6;
+  --color2: #ebe8e6;
+  --color3: #ffffff;
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin notDesktop {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
