@@ -15,6 +15,13 @@ export default defineConfig({
         '@/': `${path.resolve(__dirname, 'src')}/`,
       },
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // path to your scss variables
+          additionalData: `@import "@/sass/variables.scss";`,
+        },
+      },
+    },
   },
-  site: 'https://viperbite03.github.io',
 })
