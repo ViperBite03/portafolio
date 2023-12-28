@@ -29,6 +29,29 @@
 
     @include notDesktop {
       flex-direction: column;
+      justify-content: space-evenly;
+
+      .texto {
+        align-self: center;
+        margin-left: 0 !important;
+        text-align: center;
+
+        .title {
+          text-align: center !important;
+          font-size: 45px !important;
+        }
+
+        .subtitle {
+          font-size: 25px !important;
+        }
+      }
+
+      .rectangle {
+        align-self: end;
+        width: 65% !important;
+        height: 35% !important;
+        margin-bottom: 100px;
+      }
     }
 
     .rectangle {
@@ -53,13 +76,6 @@
 
         max-height: 500px;
         max-width: 500px;
-
-        .front,
-        .back {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-        }
       }
 
       .contacto {
@@ -103,7 +119,6 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 100%;
       margin-left: 100px;
       color: white;
       z-index: 2;
@@ -114,10 +129,6 @@
         font-size: 225px;
         text-align: left;
         max-width: 750px;
-
-        @include notDesktop {
-          font-size: 30px;
-        }
       }
 
       .subtitle {
@@ -134,11 +145,7 @@
     <div class="subtitle">¡Bienvenido a mi portafolio!</div>
   </div>
   <div class="rectangle">
-    <div class="images">
-      <img class="front" src="chibi-me.png" alt="" />
-      <!--<img class="front" src="https://cdn.pixabay.com/photo/2017/01/25/17/35/picture-2008484_1280.png" alt="" />
-      <img class="back" src="https://cdn.pixabay.com/photo/2017/01/25/17/35/picture-2008484_1280.png" alt="" />-->
-    </div>
+    <img class="images" src="chibi-me.png" alt="" />
     <div class="contacto">
       <a href={contactInfos[0].href} target="_blank">
         <img class="icono" src={contactInfos[0].img} alt="" />
