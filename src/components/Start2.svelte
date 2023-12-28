@@ -38,7 +38,7 @@
 
         .title {
           text-align: center !important;
-          font-size: 45px !important;
+          font-size: 50px !important;
         }
 
         .subtitle {
@@ -46,70 +46,103 @@
         }
       }
 
-      .rectangle {
-        align-self: end;
-        width: 65% !important;
-        height: 35% !important;
-        margin-bottom: 100px;
+      .content {
+        justify-content: end;
+        align-items: start !important;
+        height: 50% !important;
+        width: 100% !important;
+
+        .rectangle {
+          width: 65% !important;
+          height: 65% !important;
+
+          .image {
+            position: absolute;
+
+            width: 375px !important;
+            height: 375px !important;
+
+            right: 0;
+            left: 0;
+            top: 0;
+            margin: 0 auto;
+          }
+
+          .contacto {
+            position: absolute;
+
+            right: 0;
+            left: 0;
+            bottom: 0;
+          }
+        }
       }
     }
 
-    .rectangle {
-      height: 75%;
+    .content {
+      height: 100%;
       width: 50%;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 50px;
+      position: relative;
 
-      border-radius: 20px 0 0 20px;
-      background-color: #be96ff;
-      box-shadow: -5px 0px 15px 0px rgba(0, 0, 0, 0.5);
-
-      .images {
-        position: relative;
-        border-radius: 20px;
+      .rectangle {
+        height: 75%;
         width: 100%;
-        height: 100%;
-        overflow: hidden;
-
-        max-height: 500px;
-        max-width: 500px;
-      }
-
-      .contacto {
         display: flex;
-        text-align: center;
-        font-size: 20px;
-        gap: 25px;
-        margin-left: 20px;
-        font-family: 'Poppins', sans-serif;
-        color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
 
-        a {
-          height: fit-content;
-          width: fit-content;
+        border-radius: 20px 0 0 20px;
+        background-color: #be96ff;
+        box-shadow: -5px 0px 15px 0px rgba(0, 0, 0, 0.5);
+
+        .image {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+
+          z-index: 2;
+
+          max-height: 500px;
+          max-width: 500px;
+        }
+
+        .contacto {
           display: flex;
-          align-items: center;
-          transition: 0.2s ease;
+          justify-content: center;
+          text-align: center;
+          font-size: 20px;
+          gap: 25px;
+          font-family: 'Poppins', sans-serif;
+          color: white;
 
-          &:hover {
-            color: #2fe7c0;
+          a {
+            height: fit-content;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            transition: 0.2s ease;
+
+            &:hover {
+              color: #2fe7c0;
+
+              .icono {
+                transform: scale(1.2);
+                transition: 0.2s ease;
+              }
+            }
+
+            .name {
+              margin-left: 5px;
+            }
 
             .icono {
-              transform: scale(1.2);
-              transition: 0.2s ease;
+              height: 35px;
+              filter: invert(1);
             }
-          }
-
-          .name {
-            margin-left: 5px;
-          }
-
-          .icono {
-            height: 35px;
-            filter: invert(1);
           }
         }
       }
@@ -144,17 +177,19 @@
     <div class="title">Laia Martin</div>
     <div class="subtitle">¡Bienvenido a mi portafolio!</div>
   </div>
-  <div class="rectangle">
-    <img class="images" src="chibi-me.png" alt="" />
-    <div class="contacto">
-      <a href={contactInfos[0].href} target="_blank">
-        <img class="icono" src={contactInfos[0].img} alt="" />
-        <div class="name">{contactInfos[0].name}</div>
-      </a>
-      <a href={contactInfos[1].href} target="_blank">
-        <img class="icono" src={contactInfos[1].img} alt="" />
-        <div class="name">{contactInfos[1].name}</div>
-      </a>
+  <div class="content">
+    <div class="rectangle">
+      <img class="image" src="chibi-me.png" alt="" />
+      <div class="contacto">
+        <a href={contactInfos[0].href} target="_blank">
+          <img class="icono" src={contactInfos[0].img} alt="" />
+          <div class="name">{contactInfos[0].name}</div>
+        </a>
+        <a href={contactInfos[1].href} target="_blank">
+          <img class="icono" src={contactInfos[1].img} alt="" />
+          <div class="name">{contactInfos[1].name}</div>
+        </a>
+      </div>
     </div>
   </div>
 </div>
