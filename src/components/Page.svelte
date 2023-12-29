@@ -24,9 +24,9 @@
     transition: 1s ease;
     transform: translateY(calc(100vh - 100vh / 5.5));
 
-    @include notDesktop {
+    /*@include notDesktop {
       height: 65vh;
-    }
+    }*/
 
     .title {
       display: flex;
