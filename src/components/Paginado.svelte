@@ -36,6 +36,11 @@
       z-index: 2;
       transition: 0.75s ease;
 
+      @include notDesktop {
+        //he tocado esto y ahora el footer (aka el contacto) ni se muestra :)
+        height: 75vh;
+      }
+
       .text {
         font-family: 'Poppins', sans-serif;
         font-size: 25px;

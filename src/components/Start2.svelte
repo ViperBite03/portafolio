@@ -59,8 +59,8 @@
           .image {
             position: absolute;
 
-            width: 375px !important;
-            height: 375px !important;
+            width: 350px !important;
+            height: 350px !important;
 
             right: 0;
             left: 0;
@@ -73,7 +73,7 @@
 
             right: 0;
             left: 0;
-            bottom: 0;
+            bottom: 25px;
           }
         }
       }
