@@ -41,10 +41,6 @@
     color: white;
     font-family: 'Poppins', sans-serif;
 
-    @include notDesktop {
-      display: none;
-    }
-
     .title {
       font-family: 'against', sans-serif;
       margin-top: 50px;
@@ -68,7 +64,7 @@
 
       .rectangle {
         position: absolute;
-        height: 75%;
+        height: 80%;
         width: 60%;
         border-radius: 20px;
 
@@ -112,6 +108,36 @@
             }
           }
         }
+      }
+    }
+  }
+
+  @include notDesktop {
+    .content {
+      height: 70% !important;
+      align-items: start !important;
+      justify-content: start !important;
+
+      .picture {
+        position: absolute;
+        width: 275px;
+        bottom: 55px;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+
+      .rectangle {
+        width: 90% !important;
+        height: 55% !important;
+        margin: auto;
+        left: 0;
+        right: 0;
+      }
+
+      .contact-info {
+        margin-left: 50px;
+        margin-top: 30px;
       }
     }
   }
