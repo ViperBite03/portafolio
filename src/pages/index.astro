@@ -5,16 +5,25 @@ import Paginado from '../components/Paginado.svelte'
 import NavBar from '../components/NavBar2.svelte'
 import Contacto from '../components/Contacto.svelte'
 import UpButton from '../components/UpButton.svelte'
+
+import Estudios from '../components/pages/Estudios.svelte'
+import Experiencia from '../components/pages/Experiencia.svelte'
+import Idiomas from '../components/pages/Idiomas.svelte'
+import Proyectos from '../components/pages/Proyectos.svelte'
+import SobreMi from '../components/pages/SobreMi.svelte'
+import Tecnologias from '../components/pages/Tecnologias.svelte'
+import SoftSkills from '../components/pages/SoftSkills.svelte'
+
 import type { ISection } from '../interfaces/ISection.ts'
 
 const sections: ISection[] = [
-  { title: 'Sobre mí', url: 'sobre-mi', icon: 'Mujer' },
-  { title: 'Estudios', url: 'estudios', icon: 'Estudios' },
-  { title: 'Idiomas', url: 'idiomas', icon: 'Idiomas' },
-  { title: 'Experiencia', url: 'experiencia', icon: 'Estrella' },
-  { title: 'Tecnologías', url: 'tecnologias', icon: 'PC' },
-  { title: 'Proyectos', url: 'proyectos', icon: 'LlaveInglesa' },
-  { title: 'Soft skills', url: 'soft-skills', icon: 'Cerebro' },
+  { title: 'Sobre mí', url: 'sobre-mi', icon: 'Mujer', component: SobreMi },
+  { title: 'Estudios', url: 'estudios', icon: 'Estudios', component: Estudios },
+  { title: 'Idiomas', url: 'idiomas', icon: 'Idiomas', component: Idiomas },
+  { title: 'Experiencia', url: 'experiencia', icon: 'Estrella', component: Experiencia },
+  { title: 'Tecnologías', url: 'tecnologias', icon: 'PC', component: Tecnologias },
+  { title: 'Proyectos', url: 'proyectos', icon: 'LlaveInglesa', component: Proyectos },
+  { title: 'Soft skills', url: 'soft-skills', icon: 'Cerebro', component: SoftSkills },
 ]
 ---
 
@@ -28,19 +37,22 @@ const sections: ISection[] = [
 </style>
 
 <style lang="scss" is:global>
-  /* {
-    border: 1px solid yellow;
-  }*/
+
 </style>
 
 <Layout title="Laia Martin | Portafolio">
   <div class="wrapper">
+    <!-- 
     <NavBar sections={sections} />
     <Start />
     <UpButton client:only="svelte" />
+    -->
     <Paginado sections={sections} />
+
     <!-- El contacto aparece solo cuando está modo desktop -->
     <Contacto />
+ te quiero mucho <3
+  -->
   </div>
 </Layout>
 
