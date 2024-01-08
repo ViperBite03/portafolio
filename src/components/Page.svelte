@@ -1,6 +1,6 @@
 <script lang="ts">
   export let id: string = ''
-  export let title: string = 'Sobre mí'
+  export let title: string = 'Default title'
   export let icon: string = ''
 </script>
 
@@ -24,11 +24,21 @@
     transition: 1s ease;
     transform: translateY(calc(100vh - 100vh / 5.5));
 
-    .title {
+    @include notDesktop {
+      padding: 20px;
+      left: 20px;
+      right: 20px;
+    }
+
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 50px;
+
+      @include notDesktop {
+        margin-bottom: 20px;
+      }
 
       .circle {
         height: 75px;
@@ -39,22 +49,31 @@
         justify-content: center;
         align-items: center;
 
+        @include notDesktop {
+          height: 50px;
+          width: 50px;
+        }
+
         img {
-          height: 35px;
+          height: 50%;
         }
       }
 
-      .header {
+      .title {
         font-family: 'against', sans-serif;
         font-size: 70px;
+
+        @include notDesktop {
+          font-size: 25px;
+        }
       }
     }
   }
 </style>
 
 <div class="page" {id}>
-  <div class="title">
-    <div class="header">{title}</div>
+  <div class="header">
+    <div class="title">{title}</div>
     <div class="circle">
       <img src="{icon}.svg" alt="" />
     </div>
