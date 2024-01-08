@@ -37,9 +37,7 @@ const sections: ISection[] = [
 </style>
 
 <style lang="scss" is:global>
-  * {
-    //border: 1px solid yellow;
-  }
+
 </style>
 
 <Layout title="Laia Martin | Portafolio">
@@ -50,7 +48,8 @@ const sections: ISection[] = [
     <UpButton client:only="svelte" />
     -->
     <Paginado sections={sections} />
-    <!-- 
+
+    <!-- El contacto aparece solo cuando está modo desktop -->
     <Contacto />
  te quiero mucho <3
   -->
