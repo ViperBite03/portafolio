@@ -24,7 +24,6 @@
     transition: 1s ease;
     transform: translateY(calc(100vh - 100vh / 5.5));
 
-
     @include notDesktop {
       padding: 20px;
       left: 20px;
@@ -32,9 +31,6 @@
     }
 
     .header {
-
-    .title {
-
       display: flex;
       justify-content: space-between;
       align-items: center;
