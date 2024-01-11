@@ -21,7 +21,8 @@
 
 <div class="sobre-mi">
   <span class="text" contenteditable
-    >Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno.</span
+    >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus voluptates earum incidunt obcaecati similique tempore
+    repudiandae doloremque vel fugit officia perspiciatis, aliquam praesentium. Mollitia commodi a deserunt eaque fugiat tenetur!</span
   >
   <img class="picture" src="https://cdn.pixabay.com/photo/2017/01/25/17/35/picture-2008484_1280.png" alt="" />
 </div>

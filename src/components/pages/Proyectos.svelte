@@ -4,4 +4,7 @@
 <style lang="scss">
 </style>
 
-<div class="text">Se hacer botoncitos to majos y te pongo las tildes si te olvidas 👍. También soy programadora porno :).</div>
+<div class="text">
+  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro quidem dolores minus repudiandae exercitationem commodi perferendis,
+  deleniti soluta libero! Veritatis at ipsum recusandae similique. Voluptatum perspiciatis vel adipisci porro dignissimos.
+</div>
